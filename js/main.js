@@ -39,7 +39,7 @@ var MAIN = (function ( ) {
         POPUP.installPopUp( 'win', MAIN.restartGame )
         return;
       } 
-      fLevelIncrement += fLevelIncrement;
+      fLevelIncrement += 15;
       increaseLevelAttributes( );
       POPUP.installPopUp( 'leveled', MAIN.continueGame );
       MA.currentLevel++;
@@ -135,9 +135,10 @@ var MAIN = (function ( ) {
     MA.score    = 0;
     MA.gameOver = false;
 
-    fMoleSpeedMilSec = 1200;
-    fMoleCaught      = false;
-    fDoubleMole      = false;
+    fMoleSpeedMilSec    = 1200;
+    fMoleCaught         = false;
+    fDoubleMole         = false;
+    fLevelIncrement     = 15; 
 
     fScoreNode.textContent = 0;
     
