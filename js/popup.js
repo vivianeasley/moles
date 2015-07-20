@@ -13,30 +13,27 @@ var POPUP = (function ( ) {
     
   // Public Functions
   PO.installPopUp = function ( popUpType, clickCall ) {
-  
+    var viewNode;
+
     if ( popUpType === 'intro' ) {
-      htmlChunk = gIntroScreenData;
+      viewNode = VIEWS.buildIntroView( );
 
     } else if ( popUpType === 'fail' ) {
-      htmlChunk = gGameOverScreenData;
+      viewNode = VIEWS.buildGameOverView( );
 
     } else if ( popUpType === 'win' ){
-      htmlChunk = gWinScreenData;
+      viewNode = VIEWS.buildWinView( );
 
     } else {
-      htmlChunk = gLevelScreenData;
+      viewNode = VIEWS.buildLevelView( );
 
     }
-    var htmlChunk;
     var scoreSubmitButton;
-
-    var tempNode       = document.createElement( 'div' );
-    tempNode.innerHTML = htmlChunk;
-    var newNode        = tempNode.firstChild;
-    var button         = newNode.querySelector('.pop-up-button');
-    var finalScore     = newNode.querySelector('.final-score');
-    var scores         = newNode.querySelector('.high-scores');
-    var levelNumber    = newNode.querySelector('.level-number');
+    
+    var button         = viewNode.querySelector('.pop-up-button');
+    var finalScore     = viewNode.querySelector('.final-score');
+    var scores         = viewNode.querySelector('.high-scores');
+    var levelNumber    = viewNode.querySelector('.level-number');
 
     GENERAL.checkLocalStorage( );
 
@@ -44,7 +41,7 @@ var POPUP = (function ( ) {
 
     button.addEventListener("click", clickCall, false);
 
-    scoreSubmitButton = newNode.querySelector('.submit-name-button');
+    scoreSubmitButton = viewNode.querySelector('.submit-name-button');
     if (scoreSubmitButton) { 
       scoreSubmitButton.addEventListener("click", PO.submitScore, false);
     }
@@ -66,7 +63,7 @@ var POPUP = (function ( ) {
     }
 
 
-    document.body.appendChild(newNode);
+    document.body.appendChild(viewNode);
 
   }
 
