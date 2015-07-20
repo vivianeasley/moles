@@ -16,7 +16,7 @@ var VIEWS = (function ( ) {
               <img class='instructions-image' src='assets/mole.png'><span>Your average, everyday mole. Whack it to receive one point.</span>\
             </div>\
             <div class='instructions-chunk'>\
-              <img class='instructions-image' src='assets/queen-mole.png'><span>A rare red queen mole. Whack it to get 10 points and an extra vegetable.</span>\
+              <img class='instructions-image' src='assets/queen-mole.png'><span>A rare red queen mole. Whack it to get 5 points and an extra vegetable.</span>\
             </div>\
             <div class='instructions-chunk'>\
               <img class='instructions-image' src='assets/double-mole.png'><span>Whack two moles at the same time and a hole will collapse. You also score two points.</span>\

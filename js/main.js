@@ -99,7 +99,7 @@ var MAIN = (function ( ) {
 
   /////////////////// Create Mole and Randomly Place It ////////////////////////////
 
-  function createMole ( moleType ) {
+  function createMole ( moleType ) { 
     var randomHole  = GENERAL.getRandomNum( 0, (fHoleNodes.length - 1) );
     var imagePath   = 'assets/' + moleType + '-sprite.png';
     var boxOccupied = fHoleNodes[randomHole].querySelector('.mole-sprite'); 
