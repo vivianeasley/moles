@@ -44,6 +44,7 @@ NO.removeNode = function ( node ) {
 };
 
 NO.removeMultipleNodes = function ( nodes ) {
+
   if ( nodes !== Array ) {
     NO.removeNode(nodes)
     return;
@@ -51,10 +52,6 @@ NO.removeMultipleNodes = function ( nodes ) {
 
   for (var i = 0; i < nodes.length; i++) {
     NO.removeNode(nodes[i])
-  }
-
-  if (node.parentNode) {
-    node.parentNode.removeChild(node);
   }
 
 };

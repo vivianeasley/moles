@@ -97,7 +97,7 @@ var MAIN = (function ( ) {
     MA.gameLoop( ); 
   }
 
-  /////////////////// Create Mole and Randomly PLace It ////////////////////////////
+  /////////////////// Create Mole and Randomly Place It ////////////////////////////
 
   function createMole ( moleType ) {
     var randomHole  = GENERAL.getRandomNum( 0, (fHoleNodes.length - 1) );
@@ -131,7 +131,7 @@ var MAIN = (function ( ) {
 
   /////////////////// Basic Game Functionality ////////////////////////////
 
-  MA.restartGame = function ( ) { // remove extra holes
+  MA.restartGame = function ( ) {
     MA.score    = 0;
     MA.gameOver = false;
 
@@ -140,12 +140,18 @@ var MAIN = (function ( ) {
     fDoubleMole         = false;
     fLevelIncrement     = 15; 
 
+    MA.score            = 0;
+    MA.currentLevel     = 1;
+    MA.gameOver         = false;
+
     fScoreNode.textContent = 0;
     
     var lifeVeggy = document.querySelectorAll('.life');
 
     if (lifeVeggy.length > 0) {
-      NODES.removeMultipleNodes(lifeVeggy);
+      for (var i = 0; i < lifeVeggy.length; i++) {
+        NODES.removeNode(lifeVeggy[i])
+      }
     }
 
     LIFE.addLife(4);

@@ -38,8 +38,6 @@ var LIFE = (function ( ) {
   }
 
   LI.createVeggieLifeNode = function ( ) { 
-    
-
     var randomX = GENERAL.getRandomNum(0, 8);
     var randomY = GENERAL.getRandomNum(0, 2);
 
