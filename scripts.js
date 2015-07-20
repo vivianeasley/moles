@@ -129,7 +129,6 @@ var SPRITE = (function ( ) {
 
   // Public Variables
   var SP = { };
-  // SP.moduleProperty = 2;
 
   // Private Variables
   var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
@@ -448,7 +447,6 @@ var LIFE = (function ( ) {
 
   // Public Variables
   var LI = { };
-  // LI.moduleProperty = 2;
 
   // Private Variables
   var fLivesWrapper = document.querySelector('.lives');
