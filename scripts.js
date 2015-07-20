@@ -1,129 +1,117 @@
+var VIEWS = (function ( ) {
 
-gIntroScreenData = "<div class='pop-up-wrapper'>\
-    <div class='pop-up'>\
-      <div class='pop-up-title'>Welcome to Whack-A-Mole</div>\
-      <div class='instructions-wrapper'>\
-        <div>It’s time to protect your vegetables! Whack each mole you find in your garden to score one point! If you miss and it escapes you loose a vegetable. There will be five offensives from the mole army, each with faster moles and more holes. Don’t loose all your vegetables - you have to save your harvest!</div>\
-        <div class='instructions-chunk'>\
-          <img class='instructions-image' src='assets/mole.png'><span>Your average, everyday mole. Whack it to receive one point.</span>\
-        </div>\
-        <div class='instructions-chunk'>\
-          <img class='instructions-image' src='assets/queen-mole.png'><span>A rare red queen mole. Whack it to get 10 points and an extra vegetable.</span>\
-        </div>\
-        <div class='instructions-chunk'>\
-          <img class='instructions-image' src='assets/double-mole.png'><span>Whack two moles at the same time and a hole will collapse. You also score two points.</span>\
-        </div>\
-      </div>\
-      <div class='pop-up-button standard-button'>Begin!</div>\
-    </div>\
-  </div>";
+  // Public Variables
+  var VE = { };
 
-gGameOverScreenData = "<div class='pop-up-wrapper'>\
-      <div class='pop-up'>\
-        <div class='pop-up-title'>Your Garden! Your Precious Garden!</div>\
-        <div class='instructions-wrapper'>\
-          <div>The moles have swarmed your garden, your harvest is lost. You should have seen this coming. Your hubris has been your downfall. With nothing to take to market, it looks like it's back to the coal mines for you…to live out your final days in darkness... ironic.</div>\
-          <div class='final-score-wrapper'>\
-            Final Score: <span class='final-score'></span>\
-          </div>\
-          <div class=high-scores-wrapper>\
-          <div class='score-input-wrapper'>\
-            <input class='score-name-input' type='text' name='score-name'>\
-            <div class='submit-name-button standard-button'>Submit Name</div>\
-          </div>\
-            <div class='high-scores'></div>\
-          </div>\
-        <div class='pop-up-button standard-button'>Try Again!</div>\
-      </div>\
-    </div>";
-
-gWinScreenData = "<div class='pop-up-wrapper'>\
+  // Private Variables
+    
+  // Public Functions
+  VE.buildIntroView = function ( ) {
+    var introScreenData = "<div class='pop-up-wrapper'>\
         <div class='pop-up'>\
-          <div class='pop-up-title'>You Did It! You Won!</div>\
+          <div class='pop-up-title'>Welcome to Whack-A-Mole</div>\
           <div class='instructions-wrapper'>\
-            <div>You vanquished the evil moles and saved your garden from their evil mole onslaught. Victory tastes sweet. In fact, it tastes like fresh vegetables!</div>\
-            <div class='final-score-wrapper'>\
-              Final Score: <span class='final-score'></span>\
+            <div>It’s time to protect your vegetables! Whack each mole you find in your garden to score one point! If you miss and it escapes you loose a vegetable. There will be five offensives from the mole army, each with faster moles and more holes. Don’t loose all your vegetables - you have to save your harvest!</div>\
+            <div class='instructions-chunk'>\
+              <img class='instructions-image' src='assets/mole.png'><span>Your average, everyday mole. Whack it to receive one point.</span>\
             </div>\
-            <div class=high-scores-wrapper>\
+            <div class='instructions-chunk'>\
+              <img class='instructions-image' src='assets/queen-mole.png'><span>A rare red queen mole. Whack it to get 10 points and an extra vegetable.</span>\
+            </div>\
+            <div class='instructions-chunk'>\
+              <img class='instructions-image' src='assets/double-mole.png'><span>Whack two moles at the same time and a hole will collapse. You also score two points.</span>\
+            </div>\
+          </div>\
+          <div class='pop-up-button standard-button'>Begin!</div>\
+        </div>\
+      </div>";
+
+    return buildViewNode( introScreenData );
+
+  };
+
+  VE.buildGameOverView = function ( ) {
+    var gameOverScreenData = "<div class='pop-up-wrapper'>\
+          <div class='pop-up'>\
+            <div class='pop-up-title'>Your Garden! Your Precious Garden!</div>\
+            <div class='instructions-wrapper'>\
+              <div>The moles have swarmed your garden, your harvest is lost. You should have seen this coming. Your hubris has been your downfall. With nothing to take to market, it looks like it's back to the coal mines for you…to live out your final days in darkness... ironic.</div>\
+              <div class='final-score-wrapper'>\
+                Final Score: <span class='final-score'></span>\
+              </div>\
+              <div class=high-scores-wrapper>\
               <div class='score-input-wrapper'>\
                 <input class='score-name-input' type='text' name='score-name'>\
                 <div class='submit-name-button standard-button'>Submit Name</div>\
               </div>\
-              <div class='high-scores'></div>\
+                <div class='high-scores'></div>\
+              </div>\
+            <div class='pop-up-button standard-button'>Try Again!</div>\
+          </div>\
+        </div>";
+
+    return buildViewNode( gameOverScreenData );
+
+  };
+
+  VE.buildWinView = function ( ) {
+    var winScreenData = "<div class='pop-up-wrapper'>\
+            <div class='pop-up'>\
+              <div class='pop-up-title'>You Did It! You Won!</div>\
+              <div class='instructions-wrapper'>\
+                <div>You vanquished the evil moles and saved your garden from their evil mole onslaught. Victory tastes sweet. In fact, it tastes like fresh vegetables!</div>\
+                <div class='final-score-wrapper'>\
+                  Final Score: <span class='final-score'></span>\
+                </div>\
+                <div class=high-scores-wrapper>\
+                  <div class='score-input-wrapper'>\
+                    <input class='score-name-input' type='text' name='score-name'>\
+                    <div class='submit-name-button standard-button'>Submit Name</div>\
+                  </div>\
+                  <div class='high-scores'></div>\
+                </div>\
+              <div class='pop-up-button standard-button'>Try Again!</div>\
             </div>\
-          <div class='pop-up-button standard-button'>Try Again!</div>\
-        </div>\
-      </div>";
+          </div>";
 
-gLevelScreenData = "<div class='pop-up-wrapper'>\
-        <div class='pop-up'>\
-          <div class='pop-up-title'>You Drove Back the <span class='level-number'>First</span> Wave!</div>\
-          <div class='instructions-wrapper'>\
-            <div>An eerie calm falls over the garden. You know what’s coming. The moles are preparing….</div>\
-            <div class='final-score-wrapper'>\
-              Current Score: <span class='final-score'></span>\
+    return buildViewNode( winScreenData );
+
+  };
+
+  VE.buildLevelView = function ( ) {
+     var levelScreenData = "<div class='pop-up-wrapper'>\
+            <div class='pop-up'>\
+              <div class='pop-up-title'>You Drove Back the <span class='level-number'>First</span> Wave!</div>\
+              <div class='instructions-wrapper'>\
+                <div>An eerie calm falls over the garden. You know what’s coming. The moles are preparing….</div>\
+                <div class='final-score-wrapper'>\
+                  Current Score: <span class='final-score'></span>\
+                </div>\
+              <div class='pop-up-button standard-button'>Continue!</div>\
             </div>\
-          <div class='pop-up-button standard-button'>Continue!</div>\
-        </div>\
-      </div>";
-Number.isInteger = Number.isInteger || function(value) {
-    return typeof value === "number" && 
-           isFinite(value) && 
-           Math.floor(value) === value;
-};
-var SETTINGS = (function ( ) {
+          </div>";
 
-  // Public Variables
-  var SE = { };
+    return buildViewNode( levelScreenData );
 
-  // Story Settings
-  SE.speedy      = false;
-  SE.waitSeconds = 1;
-
-  // Private Variables
-
-  // var privateVariable = 1;
-    
-  // Public Functions
-  // SE.init = function ( ) {
-    
-  // };
-
-
-  // Private Functions
-  
-
-
-  return SE;
-}( ));
-
-var SAVE = (function ( ) {
-
-  // Public Variables
-  var SA = { };
-
-  // Public Variables
-  SA.saveData = [ ];
-
-  // Private Variables
-    
-  // Public Functions
-  SA.updateSave = function ( optionId ) {
-    var id = [];
-    id.push( optionId );
-
-    SA.saveData.push.apply( SA.saveData, id );
-    
   };
 
 
+
+
   // Private Functions
-  
+  function buildViewNode ( htmlText ) {
+    var tempNode       = document.createElement( 'div' );
+    tempNode.innerHTML = htmlText;
+    var newNode        = tempNode.firstChild;
+
+    return newNode;
+  }
 
 
-  return SA;
+  return VE;
 }( ));
+
+
 
 var SPRITE = (function ( ) {
 
@@ -325,6 +313,7 @@ NO.removeNode = function ( node ) {
 };
 
 NO.removeMultipleNodes = function ( nodes ) {
+
   if ( nodes !== Array ) {
     NO.removeNode(nodes)
     return;
@@ -332,10 +321,6 @@ NO.removeMultipleNodes = function ( nodes ) {
 
   for (var i = 0; i < nodes.length; i++) {
     NO.removeNode(nodes[i])
-  }
-
-  if (node.parentNode) {
-    node.parentNode.removeChild(node);
   }
 
 };
@@ -362,30 +347,27 @@ var POPUP = (function ( ) {
     
   // Public Functions
   PO.installPopUp = function ( popUpType, clickCall ) {
-  
+    var viewNode;
+
     if ( popUpType === 'intro' ) {
-      htmlChunk = gIntroScreenData;
+      viewNode = VIEWS.buildIntroView( );
 
     } else if ( popUpType === 'fail' ) {
-      htmlChunk = gGameOverScreenData;
+      viewNode = VIEWS.buildGameOverView( );
 
     } else if ( popUpType === 'win' ){
-      htmlChunk = gWinScreenData;
+      viewNode = VIEWS.buildWinView( );
 
     } else {
-      htmlChunk = gLevelScreenData;
+      viewNode = VIEWS.buildLevelView( );
 
     }
-    var htmlChunk;
     var scoreSubmitButton;
-
-    var tempNode       = document.createElement( 'div' );
-    tempNode.innerHTML = htmlChunk;
-    var newNode        = tempNode.firstChild;
-    var button         = newNode.querySelector('.pop-up-button');
-    var finalScore     = newNode.querySelector('.final-score');
-    var scores         = newNode.querySelector('.high-scores');
-    var levelNumber    = newNode.querySelector('.level-number');
+    
+    var button         = viewNode.querySelector('.pop-up-button');
+    var finalScore     = viewNode.querySelector('.final-score');
+    var scores         = viewNode.querySelector('.high-scores');
+    var levelNumber    = viewNode.querySelector('.level-number');
 
     GENERAL.checkLocalStorage( );
 
@@ -393,7 +375,7 @@ var POPUP = (function ( ) {
 
     button.addEventListener("click", clickCall, false);
 
-    scoreSubmitButton = newNode.querySelector('.submit-name-button');
+    scoreSubmitButton = viewNode.querySelector('.submit-name-button');
     if (scoreSubmitButton) { 
       scoreSubmitButton.addEventListener("click", PO.submitScore, false);
     }
@@ -415,7 +397,7 @@ var POPUP = (function ( ) {
     }
 
 
-    document.body.appendChild(newNode);
+    document.body.appendChild(viewNode);
 
   }
 
@@ -483,8 +465,6 @@ var LIFE = (function ( ) {
   }
 
   LI.createVeggieLifeNode = function ( ) { 
-    
-
     var randomX = GENERAL.getRandomNum(0, 8);
     var randomY = GENERAL.getRandomNum(0, 2);
 
@@ -603,7 +583,7 @@ var MAIN = (function ( ) {
     MA.gameLoop( ); 
   }
 
-  /////////////////// Create Mole and Randomly PLace It ////////////////////////////
+  /////////////////// Create Mole and Randomly Place It ////////////////////////////
 
   function createMole ( moleType ) {
     var randomHole  = GENERAL.getRandomNum( 0, (fHoleNodes.length - 1) );
@@ -637,7 +617,7 @@ var MAIN = (function ( ) {
 
   /////////////////// Basic Game Functionality ////////////////////////////
 
-  MA.restartGame = function ( ) { // remove extra holes
+  MA.restartGame = function ( ) {
     MA.score    = 0;
     MA.gameOver = false;
 
@@ -646,12 +626,18 @@ var MAIN = (function ( ) {
     fDoubleMole         = false;
     fLevelIncrement     = 15; 
 
+    MA.score            = 0;
+    MA.currentLevel     = 1;
+    MA.gameOver         = false;
+
     fScoreNode.textContent = 0;
     
     var lifeVeggy = document.querySelectorAll('.life');
 
     if (lifeVeggy.length > 0) {
-      NODES.removeMultipleNodes(lifeVeggy);
+      for (var i = 0; i < lifeVeggy.length; i++) {
+        NODES.removeNode(lifeVeggy[i])
+      }
     }
 
     LIFE.addLife(4);
