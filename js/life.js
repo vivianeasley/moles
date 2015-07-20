@@ -2,7 +2,6 @@ var LIFE = (function ( ) {
 
   // Public Variables
   var LI = { };
-  // LI.moduleProperty = 2;
 
   // Private Variables
   var fLivesWrapper = document.querySelector('.lives');

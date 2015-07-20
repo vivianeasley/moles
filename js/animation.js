@@ -2,7 +2,6 @@ var SPRITE = (function ( ) {
 
   // Public Variables
   var SP = { };
-  // SP.moduleProperty = 2;
 
   // Private Variables
   var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
