@@ -95,6 +95,9 @@ var VIEWS = (function ( ) {
 
   };
 
+
+
+
   // Private Functions
   function buildViewNode ( htmlText ) {
     var tempNode       = document.createElement( 'div' );
@@ -109,55 +112,3 @@ var VIEWS = (function ( ) {
 }( ));
 
 
-
-
-
-gGameOverScreenData = "<div class='pop-up-wrapper'>\
-      <div class='pop-up'>\
-        <div class='pop-up-title'>Your Garden! Your Precious Garden!</div>\
-        <div class='instructions-wrapper'>\
-          <div>The moles have swarmed your garden, your harvest is lost. You should have seen this coming. Your hubris has been your downfall. With nothing to take to market, it looks like it's back to the coal mines for you…to live out your final days in darkness... ironic.</div>\
-          <div class='final-score-wrapper'>\
-            Final Score: <span class='final-score'></span>\
-          </div>\
-          <div class=high-scores-wrapper>\
-          <div class='score-input-wrapper'>\
-            <input class='score-name-input' type='text' name='score-name'>\
-            <div class='submit-name-button standard-button'>Submit Name</div>\
-          </div>\
-            <div class='high-scores'></div>\
-          </div>\
-        <div class='pop-up-button standard-button'>Try Again!</div>\
-      </div>\
-    </div>";
-
-gWinScreenData = "<div class='pop-up-wrapper'>\
-        <div class='pop-up'>\
-          <div class='pop-up-title'>You Did It! You Won!</div>\
-          <div class='instructions-wrapper'>\
-            <div>You vanquished the evil moles and saved your garden from their evil mole onslaught. Victory tastes sweet. In fact, it tastes like fresh vegetables!</div>\
-            <div class='final-score-wrapper'>\
-              Final Score: <span class='final-score'></span>\
-            </div>\
-            <div class=high-scores-wrapper>\
-              <div class='score-input-wrapper'>\
-                <input class='score-name-input' type='text' name='score-name'>\
-                <div class='submit-name-button standard-button'>Submit Name</div>\
-              </div>\
-              <div class='high-scores'></div>\
-            </div>\
-          <div class='pop-up-button standard-button'>Try Again!</div>\
-        </div>\
-      </div>";
-
-gLevelScreenData = "<div class='pop-up-wrapper'>\
-        <div class='pop-up'>\
-          <div class='pop-up-title'>You Drove Back the <span class='level-number'>First</span> Wave!</div>\
-          <div class='instructions-wrapper'>\
-            <div>An eerie calm falls over the garden. You know what’s coming. The moles are preparing….</div>\
-            <div class='final-score-wrapper'>\
-              Current Score: <span class='final-score'></span>\
-            </div>\
-          <div class='pop-up-button standard-button'>Continue!</div>\
-        </div>\
-      </div>";
