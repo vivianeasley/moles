@@ -497,7 +497,7 @@ body {
   -ms-user-select: none;
 }
 .pop-up-wrapper {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -569,6 +569,51 @@ body {
 /********************************/
 /*Media Queries 1*/
 /********************************/
+@media all and (max-width: 399px) and (min-width: 0px) {
+  .pop-up {
+    margin: 0 auto 0 auto;
+  }
+  .main-grid {
+    margin: 20px auto 0 auto;
+  }
+  .lives {
+    max-width: 200px;
+  }
+  .main-grid-box {
+    width: 100px;
+    height: 100px;
+  }
+  .game {
+    padding: 40px 0 0 0;
+  }
+  .mole-wrapper {
+    margin: 0;
+  }
+  .main-grid-box {
+    background-position: top left;
+  }
+}
+@media all and (max-width: 699px) and (min-width: 400px) {
+  .pop-up {
+    margin: 0 auto 0 auto;
+  }
+  .main-grid {
+    margin: 20px auto 0 auto;
+  }
+  .lives {
+    max-width: 200px;
+  }
+  .main-grid-box {
+    width: 110px;
+    height: 110px;
+  }
+  .game {
+    padding: 40px 0 0 0;
+  }
+  .mole-wrapper {
+    margin: 0 auto;
+  }
+}
 /* Generated with Bounce.js. Edit at http://goo.gl/gaUQYk */
 @-webkit-keyframes animation {
   0% {

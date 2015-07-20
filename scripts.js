@@ -1,7 +1,7 @@
 
 gIntroScreenData = "<div class='pop-up-wrapper'>\
     <div class='pop-up'>\
-      <div class='pop-up-title'>Welcome to Wack-a-Mole</div>\
+      <div class='pop-up-title'>Welcome to Whack-A-Mole</div>\
       <div class='instructions-wrapper'>\
         <div>It’s time to protect your vegetables! Whack each mole you find in your garden to score one point! If you miss and it escapes you loose a vegetable. There will be five offensives from the mole army, each with faster moles and more holes. Don’t loose all your vegetables - you have to save your harvest!</div>\
         <div class='instructions-chunk'>\
@@ -547,7 +547,7 @@ var MAIN = (function ( ) {
         POPUP.installPopUp( 'win', MAIN.restartGame )
         return;
       } 
-      fLevelIncrement += fLevelIncrement;
+      fLevelIncrement += 15;
       increaseLevelAttributes( );
       POPUP.installPopUp( 'leveled', MAIN.continueGame );
       MA.currentLevel++;
@@ -643,9 +643,10 @@ var MAIN = (function ( ) {
     MA.score    = 0;
     MA.gameOver = false;
 
-    fMoleSpeedMilSec = 1200;
-    fMoleCaught      = false;
-    fDoubleMole      = false;
+    fMoleSpeedMilSec    = 1200;
+    fMoleCaught         = false;
+    fDoubleMole         = false;
+    fLevelIncrement     = 15; 
 
     fScoreNode.textContent = 0;
     
