@@ -8,7 +8,7 @@ var compileLess = require('broccoli-less-single');
 //   outputFile: '/libraries.js'
 // });
 var scripts = concat('js/', {
-  inputFiles: ['**/views.js', '**/polyfills.js', '**/settings.js', '**/save.js', '**/animation.js', '**/general.js', '**/nodes.js', '**/popup.js', '**/life.js', '**/main.js'],
+  inputFiles: ['**/views.js', '**/animation.js', '**/general.js', '**/nodes.js', '**/popup.js', '**/life.js', '**/main.js'],
   outputFile: '/scripts.js'
 });
 

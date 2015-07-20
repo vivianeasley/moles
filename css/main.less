@@ -105,7 +105,7 @@ body {
 /*************** PopUp Pages *****************/
 
 .pop-up-wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -115,7 +115,7 @@ body {
 
 .pop-up {
   max-width: 600px;
-  margin: 100px auto 0 auto;
+  margin: 30px auto 0 auto;
   background-color: white;
   border: 1px solid gray;
   overflow: hidden;
@@ -184,6 +184,7 @@ body {
 
 @media all and (max-width: 399px) and (min-width: 0px) {
   .pop-up {
+    max-width: 700px;
     margin: 0 auto 0 auto;
   }
 
@@ -222,10 +223,15 @@ body {
     margin: 20px 20px 0 20px;
   }
 
+  .pop-up-wrapper {
+    position: absolute;
+  }
+
 }
 
 @media all and (max-width: 699px) and (min-width: 400px) {
   .pop-up {
+    max-width: 700px;
     margin: 0 auto 0 auto;
   }
 
@@ -248,6 +254,10 @@ body {
 
   .mole-wrapper {
     margin: 0 auto;
+  }
+
+  .pop-up-wrapper {
+    position: absolute;
   }
 }
 
