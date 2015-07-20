@@ -370,50 +370,6 @@ th {
   padding: 0;
 }
 @font-face {
-  font-family: 'icomoon';
-  src: url('fonts/icomoon.eot?vgtald');
-  src: url('fonts/icomoon.eot?#iefixvgtald') format('embedded-opentype'), url('fonts/icomoon.ttf?vgtald') format('truetype'), url('fonts/icomoon.woff?vgtald') format('woff'), url('fonts/icomoon.svg?vgtald#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-[class^="icon-"],
-[class*=" icon-"] {
-  font-family: 'icomoon';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.icon-linkedin-square:before {
-  content: "\f08c";
-}
-.icon-magic:before {
-  content: "\f0d0";
-}
-.icon-google-plus-square:before {
-  content: "\f0d4";
-}
-.icon-comments-o:before {
-  content: "\f0e6";
-}
-.icon-rocket:before {
-  content: "\f135";
-}
-.icon-git-square:before {
-  content: "\f1d2";
-}
-.icon-bomb:before {
-  content: "\f1e2";
-}
-.icon-diamond:before {
-  content: "\f219";
-}
-@font-face {
   font-family: 'droid_sansregular';
   src: url('fonts/DroidSans-webfont.eot');
   src: url('fonts/DroidSans-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/DroidSans-webfont.woff2') format('woff2'), url('fonts/DroidSans-webfont.woff') format('woff'), url('fonts/DroidSans-webfont.ttf') format('truetype'), url('fonts/DroidSans-webfont.svg#droid_sansregular') format('svg');
@@ -429,6 +385,7 @@ body {
   padding: 5px 10px;
   border: 1px solid gray;
   cursor: pointer;
+  text-align: center;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -575,6 +532,7 @@ body {
     margin: 0 auto 0 auto;
   }
   .main-grid {
+    max-width: 331px;
     margin: 20px auto 0 auto;
   }
   .lives {
@@ -594,12 +552,12 @@ body {
     background-position: top left;
   }
   .high-scores-wrapper {
-    width: 175px;
+    width: 200px;
   }
   .standard-button {
     float: none;
     max-width: 100px;
-    margin: 20px 20px 0 20px;
+    margin: 20px auto 20px auto;
   }
   .pop-up-wrapper {
     position: absolute;
@@ -611,6 +569,7 @@ body {
     margin: 0 auto 0 auto;
   }
   .main-grid {
+    max-width: 309px;
     margin: 20px auto 0 auto;
   }
   .lives {
