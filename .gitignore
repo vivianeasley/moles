@@ -2,7 +2,8 @@
 #######################
 tmp/
 node_modules/
-libraries/routie.min.js
+libraries/TinyMusic.min.js
+libraries/fastclick.min.js
 
 # Compiled source #
 ###################

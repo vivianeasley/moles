@@ -20,15 +20,21 @@ var MAIN = (function ( ) {
     
 
   MA.init = function ( ) {
+    //Add fast click to the body. This is supposed to remove the 300ms delay on iOS devices.
+    var attachFastClick = Origami.fastclick;
+    attachFastClick(document.body);
+
     POPUP.installPopUp( 'intro', MAIN.restartGame );
     
   };
 
   /////////////////// Main Game Logic and Mole Handling ////////////////////////////
-
-  MA.gameLoop = function ( ) {
+  // The main game loops happens in 3 steps, with 3 main functions.
+  MA.startGameLoop = function ( ) {
     // If the game has ended makes game loop stop.
     if ( MA.gameOver === true ) {
+      MUSIC.stopMusic( );
+      MUSIC.playLoseSound( );
       MA.gameOver = false;
       return;
     }
@@ -36,11 +42,16 @@ var MAIN = (function ( ) {
     // This checks you score and increases the level, or registers a win, accordingly.
     if ( MA.score > fLevelIncrement ) {
       if ( MA.currentLevel > 3 ) {
+        MUSIC.stopMusic( );
+        MUSIC.playLeveledSound( );
         POPUP.installPopUp( 'win', MAIN.restartGame )
         return;
       } 
       fLevelIncrement += 15;
       increaseLevelAttributes( );
+      MUSIC.stopMusic( );
+      MUSIC.playLeveledSound( );
+      MUSIC.incrementTempo( );
       POPUP.installPopUp( 'leveled', MAIN.continueGame );
       MA.currentLevel++;
       return;
@@ -49,11 +60,12 @@ var MAIN = (function ( ) {
     // Get the amount of time to wait until a mole appears.
     var randomTimeInterval = GENERAL.getRandomNum(700, 1300); 
 
-    GENERAL.wait( randomTimeInterval, chooseMoleType )
+    GENERAL.wait( randomTimeInterval, buildPlaceMole )
   }
 
-  function chooseMoleType ( ) {
+  function buildPlaceMole ( ) {
     // This randomly decides if you will get a double, single, or queen mole.
+    // then calls create mole to build and append mole.
     var randNum = GENERAL.getRandomNum(0, 100);
 
     if ( randNum < 80 ) {
@@ -69,10 +81,10 @@ var MAIN = (function ( ) {
 
     }
 
-    GENERAL.wait( fMoleSpeedMilSec, removeMole );
+    GENERAL.wait( fMoleSpeedMilSec, removeUncaughtMoles );
   }
 
-  function removeMole ( ) { 
+  function removeUncaughtMoles ( ) { 
     //Handles Removing of uncaught moles and then continues the loop
     var moles = document.querySelectorAll('.mole-wrapper');
 
@@ -94,12 +106,14 @@ var MAIN = (function ( ) {
 
     fDoubleMole = false;
 
-    MA.gameLoop( ); 
+    MA.startGameLoop( ); 
   }
 
   /////////////////// Create Mole and Randomly Place It ////////////////////////////
 
   function createMole ( moleType ) { 
+    var moleNode;
+    var imgSpriteNode;
     var randomHole  = GENERAL.getRandomNum( 0, (fHoleNodes.length - 1) );
     var imagePath   = 'assets/' + moleType + '-sprite.png';
     var boxOccupied = fHoleNodes[randomHole].querySelector('.mole-sprite'); 
@@ -114,17 +128,18 @@ var MAIN = (function ( ) {
     }
 
     // Build mole and append. Add click events for mole.
-    var moleWrapper = document.createElement('div');
-    moleWrapper.classList.add('mole-wrapper');
+    moleNode      = VIEWS.buildMoleView( );
+    imgSpriteNode = moleNode.querySelector('.mole-sprite');
 
-    var newNode = NODES.buildReturnNode( 'img', imagePath, 'mole-sprite', moleWrapper );
-    moleWrapper.appendChild( newNode );
+    if ( moleType === 'queen-mole' ) {
+      imgSpriteNode.src = imagePath;
+    }
 
-    fHoleNodes[randomHole].appendChild( moleWrapper );
+    fHoleNodes[randomHole].appendChild( moleNode );
 
-    SPRITE.animate( newNode, 116, 103, 50, 12, undefined );
+    SPRITE.animate( imgSpriteNode, 116, 103, 50, 12, undefined );
 
-    moleWrapper.addEventListener("mousedown", function ( ) { moleCaptured( this, moleType ); }, false)
+    moleNode.addEventListener("mousedown", function ( ) { moleCaptured( this, moleType ); }, false)
 
   }
 
@@ -145,6 +160,8 @@ var MAIN = (function ( ) {
     MA.gameOver         = false;
 
     fScoreNode.textContent = 0;
+
+    MUSIC.resetTempo( );
     
     var lifeVeggy = document.querySelectorAll('.life');
 
@@ -170,9 +187,11 @@ var MAIN = (function ( ) {
   }
 
   MA.continueGame = function ( ) {
+    MUSIC.stopLoseSound( );
+    MUSIC.playMusic( );
     var popUpNode = document.querySelector('.pop-up-wrapper')
     document.body.removeChild(popUpNode);
-    MA.gameLoop( );
+    MA.startGameLoop( );
   }
 
 

@@ -9,14 +9,14 @@ var VIEWS = (function ( ) {
   VE.buildIntroView = function ( ) {
     var introScreenData = "<div class='pop-up-wrapper'>\
         <div class='pop-up'>\
-          <div class='pop-up-title'>Welcome to Whack-A-Mole</div>\
+          <div class='pop-up-title'>Welcome to Molee McMolerson's Molatorium</div>\
           <div class='instructions-wrapper'>\
             <div>It’s time to protect your vegetables! Whack each mole you find in your garden to score one point! If you miss and it escapes you loose a vegetable. There will be five offensives from the mole army, each with faster moles and more holes. Don’t loose all your vegetables - you have to save your harvest!</div>\
             <div class='instructions-chunk'>\
               <img class='instructions-image' src='assets/mole.png'><span>Your average, everyday mole. Whack it to receive one point.</span>\
             </div>\
             <div class='instructions-chunk'>\
-              <img class='instructions-image' src='assets/queen-mole.png'><span>A rare red queen mole. Whack it to get 5 points and an extra vegetable.</span>\
+              <img class='instructions-image' src='assets/queen-mole.png'><span>A rare blue queen mole. Whack it to get 5 points and an extra vegetable.</span>\
             </div>\
             <div class='instructions-chunk'>\
               <img class='instructions-image' src='assets/double-mole.png'><span>Whack two moles at the same time and a hole will collapse. You also score two points.</span>\
@@ -95,7 +95,14 @@ var VIEWS = (function ( ) {
 
   };
 
+  VE.buildMoleView = function ( ) {
+     var levelScreenData = "<div class='mole-wrapper'>\
+            <img class='mole-sprite' src='assets/mole-sprite.png'>\
+          </div>";
 
+    return buildViewNode( levelScreenData );
+
+  };
 
 
   // Private Functions

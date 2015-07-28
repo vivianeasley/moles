@@ -3,12 +3,12 @@ var pickFiles   = require('broccoli-static-compiler');
 var mergeTrees  = require('broccoli-merge-trees');
 var compileLess = require('broccoli-less-single');
 
-// var libraries = concat('libraries/', {
-//   inputFiles: ['**/*.js'],
-//   outputFile: '/libraries.js'
-// });
+var libraries = concat('libraries/', {
+  inputFiles: ['**/*.js'],
+  outputFile: '/libraries.js'
+});
 var scripts = concat('js/', {
-  inputFiles: ['**/views.js', '**/animation.js', '**/general.js', '**/nodes.js', '**/popup.js', '**/life.js', '**/main.js'],
+  inputFiles: ['**/views.js', '**/animation.js', '**/general.js', '**/nodes.js', '**/popup.js', '**/life.js', '**/music.js', '**/main.js'],
   outputFile: '/scripts.js'
 });
 
@@ -28,4 +28,4 @@ var publicFiles = pickFiles('public/', {
 });
 
 
-module.exports = mergeTrees([ scripts, appCss, publicAssets, publicIconFont, publicFiles ]); //libraries, menuJs, publicMenu, menuCss,
+module.exports = mergeTrees([ libraries, scripts, appCss, publicAssets, publicIconFont, publicFiles ]); //libraries, menuJs, publicMenu, menuCss,
