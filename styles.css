@@ -392,7 +392,12 @@ body {
 }
 .game {
   position: relative;
-  padding: 24px;
+  padding: 0 24px 24px 24px;
+}
+.stats-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
 }
 .score-wrapper {
   position: absolute;
@@ -419,7 +424,8 @@ body {
 .main-grid {
   position: relative;
   max-width: 609px;
-  margin: 0px auto 0 auto;
+  margin: 0 auto;
+  padding: 54px 0 0 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -533,7 +539,8 @@ body {
   }
   .main-grid {
     max-width: 331px;
-    margin: 20px auto 0 auto;
+    margin: 0 auto 0 auto;
+    padding: 54px 0 0 0;
   }
   .lives {
     max-width: 200px;
@@ -543,7 +550,7 @@ body {
     height: 100px;
   }
   .game {
-    padding: 40px 0 0 0;
+    padding: 0 0 0 0;
   }
   .mole-wrapper {
     margin: 0;
@@ -569,8 +576,9 @@ body {
     margin: 0 auto 0 auto;
   }
   .main-grid {
-    max-width: 309px;
-    margin: 20px auto 0 auto;
+    width: 331px;
+    margin: 0 auto;
+    padding: 54px 0 0 0;
   }
   .lives {
     max-width: 200px;
@@ -580,7 +588,7 @@ body {
     height: 110px;
   }
   .game {
-    padding: 40px 0 0 0;
+    padding: 0 0 0 0;
   }
   .mole-wrapper {
     margin: 0 auto;
