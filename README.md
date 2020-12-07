@@ -1,7 +1,7 @@
 # README #
 ### Demo ###
 
-* http://robertpage.github.io/moles/
+* [TinyMusic](https://robertpage.github.io/moles/)
 
 ### Basic Info ###
 
@@ -11,6 +11,6 @@
 ### The Game Uses ###
 * less ( uses the broccoli module )
 * broccoli
-* Music is composed using the TinyMusic library
+* Music is composed using the [TinyMusic](https://github.com/kevincennis/TinyMusic) library
 * FastClick is used to remove 300ms delay on mobile
 
