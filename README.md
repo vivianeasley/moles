@@ -1,7 +1,7 @@
 # README #
 ### Demo ###
 
-* [TinyMusic](https://robertpage.github.io/moles/)
+* [Demo](https://robertpage.github.io/moles/)
 
 ### Basic Info ###
 
